@@ -5,7 +5,6 @@ describe('readCsvFile', () => {
     let mockFile: Blob;
 
     beforeEach(() => {
-        // Create a mock Blob file
         mockFile = new Blob(['Header\nrow1\nrow2'], { type: 'text/csv' });
     });
 

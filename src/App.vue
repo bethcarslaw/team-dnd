@@ -129,6 +129,15 @@ const handleDeleteTeam = (removedTeam: string) => {
     });
 };
 
+const handleCreateTeam = (newTeam: string) => {
+    if (teams.value.includes(newTeam)) {
+        console.log(`${newTeam} already exists`);
+        return;
+    }
+
+    teams.value.push(newTeam.toLowerCase());
+};
+
 const doesEmployeeExist = (name: string) => employeeMap.value.get(name);
 </script>
 
@@ -139,7 +148,7 @@ const doesEmployeeExist = (name: string) => employeeMap.value.get(name);
         <ActionBar
             @onImportEmployees="handleEmployeeUpload"
             @onImportTeamMap="handleTeamUpload"
-            @onCreateTeam="(team: string) => teams.push(team.toLowerCase())"
+            @onCreateTeam="handleCreateTeam"
             @onExportTeamMap="handleExportTeamMap"
             @onExportEmployees="handleExportEmployees"
         />
