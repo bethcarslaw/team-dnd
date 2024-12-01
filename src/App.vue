@@ -130,12 +130,14 @@ const handleDeleteTeam = (removedTeam: string) => {
 };
 
 const handleCreateTeam = (newTeam: string) => {
-    if (teams.value.includes(newTeam)) {
+    const newTeamLowerCase = newTeam.toLowerCase();
+
+    if (teams.value.includes(newTeamLowerCase)) {
         console.log(`${newTeam} already exists`);
         return;
     }
 
-    teams.value.push(newTeam.toLowerCase());
+    teams.value.push(newTeamLowerCase);
 };
 
 const doesEmployeeExist = (name: string) => employeeMap.value.get(name);
