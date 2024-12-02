@@ -84,7 +84,7 @@ const handleTeamChange = (droppedEmployee: Employee) => {
 const handleCreateEmployee = (newEmployee: Employee) => {
     const { name, team } = newEmployee;
 
-    const foundEmployee = doesEmployeeExist(name);
+    const foundEmployee = doesEmployeeExist(name.toLowerCase());
 
     if (foundEmployee) {
         console.log(`${foundEmployee.name} already exists`);
